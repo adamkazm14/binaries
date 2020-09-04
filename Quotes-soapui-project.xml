@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="df815b70-b6a4-4727-b08b-7bb4c627c770" activeEnvironment="Default" name="Quotes" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5a67a140-1cc1-4276-b75c-9630cdffff5f" wsaVersion="NONE" name="RandomQuoteServiceSoapBinding" type="wsdl" bindingName="{http://examples.javacodegeeks.com/}RandomQuoteServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/projects/jaxb/soapwebservice/src/main/resources/wsdl/Quotes.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\projects\jaxb\soapwebservice\src\main\resources\wsdl\Quotes.wsdl"><con:part><con:url>file:\D:\projects\jaxb\soapwebservice\src\main\resources\wsdl\Quotes.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="RandomQuoteService" targetNamespace="http://examples.javacodegeeks.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://examples.javacodegeeks.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://examples.javacodegeeks.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getQuote" type="tns:getQuote"/>
+      <xs:element name="getQuoteResponse" type="tns:getQuoteResponse"/>
+      <xs:complexType name="getQuote">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getQuoteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getQuoteResponse">
+    <wsdl:part element="tns:getQuoteResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQuote">
+    <wsdl:part element="tns:getQuote" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RandomQuote">
+    <wsdl:operation name="getQuote">
+      <wsdl:input message="tns:getQuote" name="getQuote"></wsdl:input>
+      <wsdl:output message="tns:getQuoteResponse" name="getQuoteResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RandomQuoteServiceSoapBinding" type="tns:RandomQuote">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getQuote">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getQuote">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQuoteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RandomQuoteService">
+    <wsdl:port binding="tns:RandomQuoteServiceSoapBinding" name="RandomQuotePort">
+      <soap:address location="http://localhost:8080/soapservice/services/quoteService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://LAPTOP-6NFVP3MK:8088/soapservice/services/quoteService</con:endpoint><con:endpoint>http://localhost:5555/soapservice/services/quoteService</con:endpoint><con:endpoint>http://localhost:8080/soapservice/services/quoteService</con:endpoint></con:endpoints><con:operation id="4fcd8a63-b882-45a7-9212-a1e97a43b33f" isOneWay="false" action="" name="getQuote" bindingOperationName="getQuote" type="Request-Response" outputName="getQuoteResponse" inputName="getQuote" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fe79a601-8360-4c47-874c-2d02036dc423" name="Request 1" outgoingWss="basic_auth"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5555/soapservice/services/quoteService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exam="http://examples.javacodegeeks.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <exam:getQuote/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://examples.javacodegeeks.com/RandomQuote/getQuote"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="a33aab8c-6e55-4588-bc01-559c4e2a3dce" port="8088" path="/soapservice/services/quoteService" host="LAPTOP-6NFVP3MK" name="RandomQuoteServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="getQuote" id="adf8bc08-5692-44e8-a3fe-68e03f294c5a" interface="RandomQuoteServiceSoapBinding" operation="getQuote"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="1b606e41-768c-4249-b345-1d286684d2e7" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exam="http://examples.javacodegeeks.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exam:getQuoteResponse>
+         <!--Optional:-->
+         <return>abc123</return>
+      </exam:getQuoteResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://examples.javacodegeeks.com/RandomQuote/getQuoteResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer><con:outgoing mustUnderstand="false"><con:name>basic_auth</con:name><con:entry type="Username" username="akazmierski" password="wspassword"><con:configuration><addCreated>true</addCreated><addNonce>true</addNonce><passwordType>PasswordText</passwordType></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
